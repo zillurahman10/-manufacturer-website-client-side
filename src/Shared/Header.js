@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className='flex'>
+        <div className='d-flex justify-content-around my-4'>
             <div>
                 <h3 className='text-4xl'>LOGO</h3>
             </div>
