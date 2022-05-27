@@ -1,35 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Tool from './Tool'
 
 const Tools = () => {
-    const tools = [
-        {
-            name: '17 inch Rims 8 Lug',
-            img: 'https://htmldemo.net/lukas/lukas/assets/img/product/product-2.png',
-            description: 'Most selling rims in our store',
-            minimumOrderQuantity: 478,
-            availableQuantity: 1578,
-            price: 165.00
-        },
-        {
-            name: 'Auto Clutch & Brake',
-            img: 'https://htmldemo.net/lukas/lukas/assets/img/product/product-1.png',
-            description: 'Most selling car brake in our store',
-            minimumOrderQuantity: 173,
-            availableQuantity: 547,
-            price: 169.00
-        },
-        {
-            name: 'Locking Hub Diagram',
-            img: 'https://htmldemo.net/lukas/lukas/assets/img/product/product-5.png',
-            description: 'Most selling Loking Hub in our store',
-            minimumOrderQuantity: 243,
-            availableQuantity: 691,
-            price: 132.00
-        }
-    ]
+    const [tools, setTools] = useState([])
+    useEffect(() => {
+        fetch('https://nameless-sands-54366.herokuapp.com/tools')
+            .then(res => res.json())
+            .then(data => setTools(data))
+    }, [])
     return (
-        <div>
-
+        <div className='mt-5'>
+            <h2 className='text-center mb-5'>Our Tools</h2>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 container'>
+                {
+                    tools.map(tool => <Tool
+                        key={tool._id}
+                        tool={tool}
+                    ></Tool>)
+                }
+            </div>
         </div>
     );
 };
