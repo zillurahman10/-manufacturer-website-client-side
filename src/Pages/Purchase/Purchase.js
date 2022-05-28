@@ -1,4 +1,3 @@
-import { Button, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
@@ -48,21 +47,21 @@ const Purchase = () => {
                             <p>Minimum Order Quantity : {tool.minimumOrderQuantity}</p>
                             <p>Available Quantity : {tool.availableQuantity}</p>
                             <p>{tool.description}</p>
-                            <Button variant="contained" style={{ width: '50px' }}>+</Button>
+                            <button variant="contained" style={{ width: '50px' }}>+</button>
                             <input className='mx-2 pl-2 rounded-3 border' style={{ width: '100px', height: '50px' }} placeholder='Quantity' type="number" />
-                            <Button variant="contained" style={{ width: '50px' }}>-</Button>
+                            <button variant="contained" style={{ width: '50px' }}>-</button>
                         </div>
                     </div>
                     <form onSubmit={formSubmit} className='my-12  flex justify-center '>
                         <div>
                             <h4 className='text-center'>Place Your Order</h4>
-                            <TextField name='name' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" value={user?.displayName} label="User Name" variant="outlined" />
+                            <input name='name' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" value={user?.displayName} label="User Name" variant="outlined" />
                             <br />
-                            <TextField name='email' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" value={user?.email} label="Email" variant="outlined" />
+                            <input name='email' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" value={user?.email} label="Email" variant="outlined" />
                             <br />
-                            <TextField name='phoneNumber' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" label="Phone Number" variant="outlined" />
+                            <input name='phoneNumber' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" label="Phone Number" variant="outlined" />
                             <br />
-                            <TextField name='address' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" label="Address" variant="outlined" />
+                            <input name='address' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" label="Address" variant="outlined" />
                             <br />
                             <input type="submit" value="Place Order" />
                         </div>

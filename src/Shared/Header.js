@@ -1,4 +1,3 @@
-import { SingleBedOutlined } from '@mui/icons-material';
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -11,6 +10,7 @@ const Header = () => {
     const logOut = () => {
         signOut(auth)
     }
+
     return (
         <div className='flex justify-content-around my-4'>
             <div>
@@ -24,23 +24,12 @@ const Header = () => {
                 <Link className='mx-3 text-decoration-none text-black font-bold' to='/'>Blogs</Link>
             </div>
             <div>
-                {user ? <button onClick={logOut} className='text-bold'>Sign Out</button> : <>
+                {!user && <>
                     <Link style={{ borderRight: '2px solid black' }} className='pr-4 text-decoration-none text-black font-bold' to="/login">LOGIN</Link>
                     <Link className='ml-4 text-decoration-none text-black font-bold' to='/signup'>REGISTER</Link>
                 </>
                 }
             </div>
-            {/* {user ? <div className="avatar d-inline" >
-                <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={user?.photoURL} alt='' />
-                </div>
-            </div>
-                :
-                <div className="avatar placeholder">
-                    <div className=" text-neutral-content rounded-full w-12">
-                        <span>A</span>
-                    </div>
-                </div>} */}
         </div>
     );
 };

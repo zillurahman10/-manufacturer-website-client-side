@@ -6,7 +6,6 @@ const MyOrders = () => {
     const [user] = useAuthState(auth)
     console.log(user);
     const [orders, setOrders] = useState([])
-    console.log(orders);
     useEffect(() => {
         fetch(`http://localhost:5000/orders?email=${user?.email}`)
             .then(res => res.json())
@@ -22,32 +21,25 @@ const MyOrders = () => {
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Price</th>
+                            <th>Order ID</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* <!-- row 1 --> */}
-                        <tr>
+                        {orders.map(order => <tr>
                             <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                        </tr>
-                        {/* <!-- row 2 --> */}
-                        <tr>
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>Purple</td>
-                        </tr>
-                        {/* <!-- row 3 --> */}
-                        <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td>Tax Accountant</td>
-                            <td>Red</td>
-                        </tr>
+                            <td>{orders[0].tool.name}</td>
+                            <td>{orders[0].tool.price}</td>
+                            <td>{orders[0].tool._id}</td>
+                            <td><button class="btn btn-xs">Pay</button>
+
+                                <button class="btn btn-xs">Cancel</button>
+
+                            </td>
+                        </tr>)}
+
                     </tbody>
                 </table>
             </div>

@@ -1,4 +1,3 @@
-import { Button, IconButton, Input, Stack, TextField } from '@mui/material';
 import React from 'react';
 import googleLogo from '../../assets/google logo.png'
 import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -32,22 +31,22 @@ const SignUp = () => {
                 <h3 className='text-center'>LOGIN</h3>
                 <form onSubmit={handleSubmit} className='flex justify-center' >
                     <div className='mt-3'>
-                        <TextField type='text' id="standard-basic" label="Name" variant="standard" name='name' required style={{ width: '300px' }} />
+                        <input type='text' id="standard-basic" label="Name" variant="standard" name='name' required style={{ width: '300px' }} />
                         <br />
-                        <TextField type='email' id="standard-basic" label="Email" variant="standard" name='email' required style={{ width: '300px' }} />
+                        <input type='email' id="standard-basic" label="Email" variant="standard" name='email' required style={{ width: '300px' }} />
                         <br />
-                        <TextField type='password' id="standard-basic" label="Password" name='password' variant="standard" required style={{ width: '300px' }} />
+                        <input type='password' id="standard-basic" label="Password" name='password' variant="standard" required style={{ width: '300px' }} />
                         <br />
                         <label htmlFor="">
                             Image
                             <br />
-                            <TextField type='file' id="standard-basic" label="image" variant="standard" />
+                            <input type='file' id="standard-basic" label="image" variant="standard" />
                         </label>
                         <p className='text-danger'>{error?.message}</p>
                         <br />
-                        <Button className='mt-3 w-100' variant="contained">LOGIN</Button>
+                        <button className='mt-3 w-100' variant="contained">LOGIN</button>
                         <br />
-                        {<Button onClick={() => signInWithGoogle()} className='mt-3 w-100' variant="outlined"><img style={{ width: '30px', marginRight: '10px' }} src={googleLogo} alt="" /> Sign in with google</Button>}
+                        {<button onClick={() => signInWithGoogle()} className='mt-3 w-100' variant="outlined"><img style={{ width: '30px', marginRight: '10px' }} src={googleLogo} alt="" /> Sign in with google</button>}
                     </div>
                 </form>
             </div>

@@ -1,4 +1,3 @@
-import { Button } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,7 +20,7 @@ const Tool = ({ tool }) => {
                     <p>{description}</p>
                     <p>${price} (per unit)</p>
                     <div className="card-actions">
-                        <Button onClick={changePage} variant="contained">Buy Now</Button>
+                        <button onClick={changePage} variant="contained">Buy Now</button>
                     </div>
                 </div>
             </div>
