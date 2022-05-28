@@ -9,6 +9,7 @@ import Purchase from './Pages/Purchase/Purchase';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import RequireAuth from './Shared/RequireAuth';
 
 
 function App() {
@@ -24,7 +25,11 @@ function App() {
           <Route path='addareview' element={<MyOrders></MyOrders>}></Route>
           <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
         </Route>
-        <Route path="/purchase/:id" element={<Purchase></Purchase>}></Route>
+        <Route path="/purchase/:id" element={
+          <RequireAuth>
+            <Purchase></Purchase>
+          </RequireAuth>
+        }></Route>
       </Routes>
     </div>
   );

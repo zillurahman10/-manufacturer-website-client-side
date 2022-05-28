@@ -20,9 +20,6 @@ const Header = () => {
                 <Link className='mx-3 text-decoration-none text-black font-bold' to='/'>Home</Link>
                 {user && <>
                     <Link className='mx-3 text-decoration-none text-black font-bold' to='/dashboard'>Dashboard</Link>
-                    <Link className='mx-3 text-decoration-none text-black font-bold' to='/'>My Orders</Link>
-                    <Link className='mx-3 text-decoration-none text-black font-bold' to='/'>Add A Review</Link>
-                    <Link className='mx-3 text-decoration-none text-black font-bold' to='/'>My Profile</Link>
                 </>}
                 <Link className='mx-3 text-decoration-none text-black font-bold' to='/'>Blogs</Link>
             </div>
@@ -33,14 +30,14 @@ const Header = () => {
                 </>
                 }
             </div>
-            {/* {user ? <div class="avatar d-inline" >
-                <div class="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            {/* {user ? <div className="avatar d-inline" >
+                <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img src={user?.photoURL} alt='' />
                 </div>
             </div>
                 :
-                <div class="avatar placeholder">
-                    <div class=" text-neutral-content rounded-full w-12">
+                <div className="avatar placeholder">
+                    <div className=" text-neutral-content rounded-full w-12">
                         <span>A</span>
                     </div>
                 </div>} */}

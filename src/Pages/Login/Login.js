@@ -20,7 +20,7 @@ const Login = () => {
                     <br />
                     <Button className='mt-3 w-100' variant="contained">LOGIN</Button>
                     <br />
-                    {loading ? <button class="btn loading">loading</button>
+                    {loading ? <button className="btn loading">loading</button>
                         : <Button onClick={() => signInWithGoogle()} className='mt-3 w-100' variant="outlined"><img style={{ width: '30px', marginRight: '10px' }} src={googleLogo} alt="" /> Sign in with google</Button>}
                 </div>
             </div>
