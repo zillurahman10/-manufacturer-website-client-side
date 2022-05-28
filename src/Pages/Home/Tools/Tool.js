@@ -10,7 +10,7 @@ const Tool = ({ tool }) => {
         navigate(`purchase/${_id}`)
     }
     return (
-        <div>
+        <div className='m-5'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={img} alt="Shoes" className="rounded-xl" />
@@ -20,7 +20,7 @@ const Tool = ({ tool }) => {
                     <p>{description}</p>
                     <p>${price} (per unit)</p>
                     <div className="card-actions">
-                        <button onClick={changePage} variant="contained">Buy Now</button>
+                        <button onClick={changePage} className='btn btn-accent'>Buy Now</button>
                     </div>
                 </div>
             </div>

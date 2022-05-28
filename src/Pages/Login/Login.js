@@ -1,28 +1,47 @@
 import React from 'react';
 import googleLogo from '../../assets/google logo.png'
-import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
     const [user, loading, error] = useAuthState(auth)
+    const navigate = useNavigate()
+    const [
+        signInWithEmailAndPassword,
+        Suser,
+        Sloading,
+        Serror,
+    ] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const handleSubmit = e => {
+        e.preventDefault()
+        const email = e.target.email.value
+        const password = e.target.password.value
+        signInWithEmailAndPassword(email, password)
+    }
+    if (user) {
+        navigate('/')
+    }
     return (
         <div className='mt-5 pt-5 bg-gray-200 mx-auto rounded-3' style={{ height: '500px', width: '500px' }}>
-            <h3 className='text-center'>LOGIN</h3>
-            <div className='flex justify-center' >
+            <h3 className='text-2xl font-bold text-center'>LOGIN</h3>
+            <form onSubmit={handleSubmit} className='flex justify-center' >
                 <div className='mt-3'>
-                    <input type='email' id="standard-basic" label="Email" variant="standard" required style={{ width: '300px' }} />
+                    <label htmlFor="email">Your Email</label>
+                    <input type="email" placeholder="Email" class="input input-bordered w-full max-w-xs" />
                     <br />
-                    <input type='password' id="standard-basic" label="Password" variant="standard" required style={{ width: '300px' }} />
+                    <label htmlFor="password" className='mt-5'>Your Password</label>
+                    <input type="password" placeholder="Password" class="input input-bordered w-full max-w-xs" />
                     <p className='text-danger'>{error?.message}</p>
                     <br />
-                    <button className='mt-3 w-100' variant="contained">LOGIN</button>
+                    <p className='text-center'>New in CarBD? <Link className='text-secondary' to='/signup'>Sign Up</Link></p>
+                    {/* <input type='submit' className='btn btn-accent w-full mt-3 w-100'>LOGIN</input> */}
                     <br />
-                    {loading ? <button className="btn loading">loading</button>
-                        : <button onClick={() => signInWithGoogle()} className='mt-3 w-100' variant="outlined"><img style={{ width: '30px', marginRight: '10px' }} src={googleLogo} alt="" /> Sign in with google</button>}
+                    <button onClick={() => signInWithGoogle()} className='btn btn-accent mt-3 w-full ' ><img style={{ width: '30px', marginRight: '10px' }} className='align-center' src={googleLogo} alt="" /> Sign in with google</button>
                 </div>
-            </div>
+            </form>
         </div>
     );
 };

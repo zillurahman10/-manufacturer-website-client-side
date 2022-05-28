@@ -37,7 +37,7 @@ const Purchase = () => {
 
     }
     return (
-        <div className="hero min-h-screen bg-base-200 mt-12">
+        <div className="hero min-h-screen mt-12">
             <div className="hero-content flex-col lg:flex-row">
                 <div>
                     <div className='bg-gray-200 p-12 flex justify-between w-50 mx-auto'>
@@ -47,23 +47,25 @@ const Purchase = () => {
                             <p>Minimum Order Quantity : {tool.minimumOrderQuantity}</p>
                             <p>Available Quantity : {tool.availableQuantity}</p>
                             <p>{tool.description}</p>
-                            <button variant="contained" style={{ width: '50px' }}>+</button>
+                            <button class="btn btn-active btn-primary">+</button>
+
                             <input className='mx-2 pl-2 rounded-3 border' style={{ width: '100px', height: '50px' }} placeholder='Quantity' type="number" />
-                            <button variant="contained" style={{ width: '50px' }}>-</button>
+                            <button class="btn btn-active btn-error">-</button>
+
                         </div>
                     </div>
                     <form onSubmit={formSubmit} className='my-12  flex justify-center '>
                         <div>
                             <h4 className='text-center'>Place Your Order</h4>
-                            <input name='name' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" value={user?.displayName} label="User Name" variant="outlined" />
+                            <input type="text" disabled placeholder="Name" value={user?.displayName} class="input input-bordered w-full max-w-xs" />
                             <br />
-                            <input name='email' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" value={user?.email} label="Email" variant="outlined" />
+                            <input type="email" disabled placeholder="Email" value={user.email} class="input input-bordered w-full max-w-xs" />
                             <br />
-                            <input name='phoneNumber' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" label="Phone Number" variant="outlined" />
+                            <input type="number" placeholder="Phone Number" class="input input-bordered w-full max-w-xs" />
                             <br />
-                            <input name='address' style={{ width: '300px', margin: '7px 0' }} id="outlined-basic" label="Address" variant="outlined" />
+                            <input type="text" placeholder="Address" class="input input-bordered w-full max-w-xs" />
                             <br />
-                            <input type="submit" value="Place Order" />
+                            <input className='btn btn-secondary w-50 mx-auto' type="submit" value="Place Order" />
                         </div>
                     </form>
                 </div>

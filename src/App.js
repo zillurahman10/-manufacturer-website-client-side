@@ -9,6 +9,8 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import RequireAuth from './Shared/RequireAuth';
+import Footer from './Shared/Footer';
+import AddAReview from './Pages/Dashboard/AddAReview';
 
 
 function App() {
@@ -22,7 +24,7 @@ function App() {
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/dashboard" element={<Dashboard></Dashboard>}>
           <Route index element={<MyOrders></MyOrders>}></Route>
-          <Route path='addareview' element={<MyOrders></MyOrders>}></Route>
+          <Route path='addareview' element={<AddAReview></AddAReview>}></Route>
           <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
         </Route>
         <Route path="/purchase/:id" element={
@@ -31,6 +33,7 @@ function App() {
           </RequireAuth>
         }></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

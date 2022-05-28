@@ -12,7 +12,7 @@ const Header = () => {
     }
 
     return (
-        <div className='flex justify-content-around my-4'>
+        <div className='flex justify-content-between my-4'>
             <div>
                 <img style={{ width: '100px' }} src={logo} alt="" />
             </div>
