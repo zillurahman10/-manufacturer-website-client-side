@@ -24,7 +24,7 @@ const Header = () => {
                 <Link className='mx-3 text-decoration-none text-black font-bold' to='/'>Blogs</Link>
             </div>
             <div>
-                {!user && <>
+                {user ? <button onClick={logOut} className='mx-3 font-bold border-none bg-white'>Sign Out</button> : <>
                     <Link style={{ borderRight: '2px solid black' }} className='pr-4 text-decoration-none text-black font-bold' to="/login">LOGIN</Link>
                     <Link className='ml-4 text-decoration-none text-black font-bold' to='/signup'>REGISTER</Link>
                 </>

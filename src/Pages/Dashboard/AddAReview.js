@@ -7,16 +7,6 @@ const AddAReview = () => {
         const name = e.target.name.value
         const review = e.target.review.value
         const fullReview = { name, review }
-        // fetch('http://localhost:5000/review'), {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(fullReview)
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             console.log(data);
-        //         })
     }
     return (
         <div>

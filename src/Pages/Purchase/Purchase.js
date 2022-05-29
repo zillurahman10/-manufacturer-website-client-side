@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import auth from '../../firebase.init';
 
 const Purchase = () => {
     const [user] = useAuthState(auth)
+    const navigate = useNavigate()
     const { id } = useParams()
     const [tool, setTool] = useState([])
     useEffect(() => {
@@ -32,7 +33,9 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if (data.insertedId) {
+                    navigate('/dashboard')
+                }
             })
 
     }
@@ -47,6 +50,7 @@ const Purchase = () => {
                             <p>Minimum Order Quantity : {tool.minimumOrderQuantity}</p>
                             <p>Available Quantity : {tool.availableQuantity}</p>
                             <p>{tool.description}</p>
+                            <p><small>Price : {tool.price} (per unit)</small></p>
                             <button class="btn btn-active btn-primary">+</button>
 
                             <input className='mx-2 pl-2 rounded-3 border' style={{ width: '100px', height: '50px' }} placeholder='Quantity' type="number" />
@@ -57,15 +61,15 @@ const Purchase = () => {
                     <form onSubmit={formSubmit} className='my-12  flex justify-center '>
                         <div>
                             <h4 className='text-center'>Place Your Order</h4>
-                            <input type="text" disabled placeholder="Name" value={user?.displayName} class="input input-bordered w-full max-w-xs" />
+                            <input type="text" name='name' disabled placeholder="Name" value={user?.displayName} class=" my-2 input input-bordered w-full max-w-xs" />
                             <br />
-                            <input type="email" disabled placeholder="Email" value={user.email} class="input input-bordered w-full max-w-xs" />
+                            <input type="email" name='email' disabled placeholder="Email" value={user.email} class="my-2 input input-bordered w-full max-w-xs" />
                             <br />
-                            <input type="number" placeholder="Phone Number" class="input input-bordered w-full max-w-xs" />
+                            <input type="number" name='phoneNumber' placeholder="Phone Number" class="my-2 input input-bordered w-full max-w-xs" />
                             <br />
-                            <input type="text" placeholder="Address" class="input input-bordered w-full max-w-xs" />
+                            <input type="text" name='address' placeholder="Address" class="my-2 input input-bordered w-full max-w-xs" />
                             <br />
-                            <input className='btn btn-secondary w-50 mx-auto' type="submit" value="Place Order" />
+                            <input className='btn btn-secondary w-full' type="submit" value="Place Order" />
                         </div>
                     </form>
                 </div>
