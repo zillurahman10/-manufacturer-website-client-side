@@ -22,6 +22,7 @@ const Header = () => {
                     <Link className='mx-3 text-decoration-none text-black font-bold' to='/dashboard'>Dashboard</Link>
                 </>}
                 <Link className='mx-3 text-decoration-none text-black font-bold' to='/'>Blogs</Link>
+                <Link to='/myportfolio'></Link>
             </div>
             <div>
                 {user ? <button onClick={logOut} className='mx-3 font-bold border-none bg-white'>Sign Out</button> : <>
