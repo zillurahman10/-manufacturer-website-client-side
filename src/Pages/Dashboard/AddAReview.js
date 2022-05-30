@@ -8,7 +8,7 @@ const AddAReview = () => {
         const name = e.target.name.value
         const review = e.target.review.value
         const fullReview = { name, review }
-        fetch('http://localhost:5000/review', {
+        fetch('https://aqueous-beyond-46423.herokuapp.com/review', {
             method: "POST",
             headers: {
                 'content-type': "application/json"
@@ -26,7 +26,7 @@ const AddAReview = () => {
         console.log(review);
     }
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://aqueous-beyond-46423.herokuapp.com/review')
             .then(res => res.json())
             .then(data => setGetReview(data))
     }, [])

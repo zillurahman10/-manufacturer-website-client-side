@@ -10,7 +10,7 @@ const Purchase = () => {
     const { id } = useParams()
     const [tool, setTool] = useState([])
     useEffect(() => {
-        const url = `https://nameless-sands-54366.herokuapp.com/tools/${id}`
+        const url = `https://aqueous-beyond-46423.herokuapp.com/tools/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))
@@ -24,7 +24,7 @@ const Purchase = () => {
 
         const order = { name, email, phoneNumber, address, tool }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://aqueous-beyond-46423.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -39,6 +39,17 @@ const Purchase = () => {
             })
 
     }
+    // const increaseQuantity = e => {
+    //     e.preventDefault()
+    //     const quantity = e.target.quantity.value
+    //     const finalQuantity = tool.availableQuantity + quantity
+    //     fetch(`http://localhost:5000/tools/${id}`, {
+    //         method : "PATCH",
+    //         headers : {
+    //             'content-type' : 'application/json'
+    //         },
+    //     })
+    // }
     return (
         <div className="hero min-h-screen mt-12">
             <div className="hero-content flex-col lg:flex-row">
@@ -51,9 +62,10 @@ const Purchase = () => {
                             <p>Available Quantity : {tool.availableQuantity}</p>
                             <p>{tool.description}</p>
                             <p><small>Price : {tool.price} (per unit)</small></p>
+                            <form></form>
                             <button class="btn btn-active btn-primary">+</button>
 
-                            <input className='mx-2 pl-2 rounded-3 border' style={{ width: '100px', height: '50px' }} placeholder='Quantity' type="number" />
+                            <input name='quantity' className='mx-2 pl-2 rounded-3 border' style={{ width: '100px', height: '50px' }} placeholder='Quantity' type="number" />
                             <button class="btn btn-active btn-error">-</button>
 
                         </div>

@@ -10,7 +10,7 @@ const MyOrders = () => {
     // const [singleOrder, setSingleOrder] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`)
+        fetch(`https://aqueous-beyond-46423.herokuapp.com/orders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user?.email])
@@ -20,7 +20,7 @@ const MyOrders = () => {
     // console.log(singleOrder);
 
     const deleteOrder = () => {
-        // fetch(`http://localhost:5000/orders/${orders?._id}`, {
+        // fetch(`https://aqueous-beyond-46423.herokuapp.com/orders/${orders?._id}`, {
         //     method: "DELETE"
         // })
         //     .then(res => res.json())
